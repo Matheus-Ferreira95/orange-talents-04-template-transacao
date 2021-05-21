@@ -11,9 +11,8 @@ import java.time.LocalDateTime;
 public class Transacao {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String uuid;
+
     private BigDecimal valor;
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -21,6 +20,7 @@ public class Transacao {
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Cartao cartao;
+
     private LocalDateTime efetivadaEm;
 
     @Deprecated
@@ -32,5 +32,17 @@ public class Transacao {
         this.estabelecimento = estabelecimento;
         this.cartao = cartao;
         this.efetivadaEm = efetivadaEm;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public Estabelecimento getEstabelecimento() {
+        return estabelecimento;
+    }
+
+    public LocalDateTime getEfetivadaEm() {
+        return efetivadaEm;
     }
 }

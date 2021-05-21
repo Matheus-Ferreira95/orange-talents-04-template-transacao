@@ -18,6 +18,15 @@ public class EstabelecimentoResponse {
         return endereco;
     }
 
+    public EstabelecimentoResponse() {
+    }
+
+    public EstabelecimentoResponse(Estabelecimento estabelecimento) {
+        this.nome = estabelecimento.getNome();
+        this.cidade = estabelecimento.getCidade();
+        this.endereco = estabelecimento.getEndereco();
+    }
+
     public Estabelecimento toModel() {
         return new Estabelecimento(nome, cidade, endereco);
     }
